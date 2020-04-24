@@ -22,25 +22,32 @@ namespace Kolhoz_UrlCreator
             this.WindowState = FormWindowState.Minimized;
             //this.Hide();
             this.ShowInTaskbar = false;
+
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-
-
+            List<Keys> C1 = new List<Keys> { Keys.LControlKey, Keys.N };
+            Combinaison Combinaison = new Combinaison(C1, Action);
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void Form1_KeyDown(object sender, KeyEventArgs e)// убрать
         {
-            if (e.KeyCode == Keys.F1 && e.Alt)
-            {
-              
-            }
+           
         }
 
+        public void Action(List<Keys> keys)
+        {
+            string Keys = "";
+            foreach (var key in keys)
+            {
+                Keys += key.ToString() + " ";
+            }
+            MessageBox.Show(Keys);
+        }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)// убрать
         {
 
         }
