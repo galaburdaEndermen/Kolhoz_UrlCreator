@@ -29,7 +29,8 @@ namespace Kolhoz_UrlCreator
 
         private void Process()
         {
-            Application.Run(new Form1());
+            //Application.Run(new Form1());
+            KeyListener kl = new KeyListener();
         }
 
         protected override void OnStop()
