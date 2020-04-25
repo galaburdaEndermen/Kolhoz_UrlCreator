@@ -25,5 +25,12 @@ namespace Kolhoz_UrlCreator
             }
             HtmlRequester.stopJamming();
         }
+
+
+
+        private static void Save(string url, string title)
+        {
+            //зберегти 
+        }
     }
 }

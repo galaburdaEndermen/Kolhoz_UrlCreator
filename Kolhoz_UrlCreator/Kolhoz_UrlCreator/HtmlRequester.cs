@@ -30,7 +30,7 @@ namespace Kolhoz_UrlCreator
         }
         private static void Filtre(string fileName)
         {
-            //удалить недопустимы символи 
+            fileName = fileName.Replace("/", "").Replace(@"\", "").Replace(":", "").Replace("*", "").Replace("?", "").Replace("\"", "").Replace(">", "").Replace("<", "").Replace("|", "");
         }
 
 
