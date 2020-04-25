@@ -24,12 +24,15 @@ namespace Kolhoz_UrlCreator
             this.ShowInTaskbar = false;
 
 
+            List<Keys> C1 = new List<Keys> { Keys.LControlKey, Keys.N };
+            Combinaison Combinaison = new Combinaison(C1, Action);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            List<Keys> C1 = new List<Keys> { Keys.LControlKey, Keys.N };
-            Combinaison Combinaison = new Combinaison(C1, Action);
+            //List<Keys> C1 = new List<Keys> { Keys.LControlKey, Keys.N };
+            //Combinaison Combinaison = new Combinaison(C1, Action);
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)// убрать
