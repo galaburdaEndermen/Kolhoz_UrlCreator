@@ -54,8 +54,8 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="globalKeyboardHook.cs" />
+    <Compile Include="GlobalKeySender.cs" />
     <Compile Include="HtmlRequester.cs" />
-    <Compile Include="KeyListener.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UrlSaveCreator.cs" />

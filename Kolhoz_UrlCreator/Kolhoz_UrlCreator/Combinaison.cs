@@ -40,14 +40,14 @@ namespace Kolhoz_UrlCreator
 
         private void gkh_KeyUp(object sender, KeyEventArgs e)
         {
-            e.Handled = true;
+            //e.Handled = true;
             _event = false;
             _pressed[_combinaison.IndexOf(e.KeyCode)] = false;
         }
 
         private void gkh_KeyDown(object sender, KeyEventArgs e)
         {
-            e.Handled = true;
+            //e.Handled = true;
             if (_combinaison.IndexOf(e.KeyCode) == _combinaison.Count - 1)
             {
                 bool before_pressed = true;
