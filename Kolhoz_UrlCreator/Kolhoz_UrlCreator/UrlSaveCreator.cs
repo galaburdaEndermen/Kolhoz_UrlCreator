@@ -14,7 +14,16 @@ namespace Kolhoz_UrlCreator
         public static void Create()
         {
             GlobalKeySender.SendCtrlCtoSystem();
-            MessageBox.Show(Clipboard.GetText());
+            //MessageBox.Show(Clipboard.GetText());
+            string selectedText = Clipboard.GetText();
+
+            HtmlRequester.startJamming();
+            if (HtmlRequester.isExist(selectedText))
+            {
+                string title = HtmlRequester.getTitle(selectedText);
+                MessageBox.Show(title);
+            }
+            HtmlRequester.stopJamming();
         }
     }
 }

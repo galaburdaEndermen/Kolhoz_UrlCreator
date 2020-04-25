@@ -43,7 +43,8 @@ namespace Kolhoz_UrlCreator
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            List<Keys> C1 = new List<Keys> { Keys.LControlKey, Keys.N };
+            //List<Keys> C1 = new List<Keys> { Keys.LControlKey, Keys.N };
+            List<Keys> C1 = new List<Keys> { /*Keys.LControlKey,*/ Keys.N };
             Combinaison Combinaison = new Combinaison(C1, Action);
         }
 

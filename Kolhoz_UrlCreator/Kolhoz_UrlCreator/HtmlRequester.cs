@@ -25,6 +25,7 @@ namespace Kolhoz_UrlCreator
             byte[] bytes = Encoding.Default.GetBytes(title);
             title = Encoding.UTF8.GetString(bytes);
 
+            Filtre(title);
             return title;
         }
         private static void Filtre(string fileName)
