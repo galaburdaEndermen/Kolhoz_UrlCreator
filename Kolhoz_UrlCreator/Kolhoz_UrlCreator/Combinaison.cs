@@ -42,21 +42,21 @@ namespace Kolhoz_UrlCreator
         {
             //e.Handled = true;
 
-            //if (_combinaison.IndexOf(e.KeyCode) == _combinaison.Count - 1)
-            //{
-            //    e.Handled = true;
-            //}
+            if (_combinaison.IndexOf(e.KeyCode) == _combinaison.Count - 1)
+            {
+                e.Handled = true;
+            }
 
-            //_event = false;
-            //_pressed[_combinaison.IndexOf(e.KeyCode)] = false;
+            _event = false;
+            _pressed[_combinaison.IndexOf(e.KeyCode)] = false;
         }
 
         private void gkh_KeyDown(object sender, KeyEventArgs e)
         {
-            e.Handled = true;
+            //e.Handled = true;
             if (_combinaison.IndexOf(e.KeyCode) == _combinaison.Count - 1)
             {
-                e.Handled = true;
+                //e.Handled = true;
                 bool before_pressed = true;
                 for (int i = 0; i < _combinaison.IndexOf(e.KeyCode); i++)
                 {
@@ -79,7 +79,7 @@ namespace Kolhoz_UrlCreator
             }
 
             //MessageBox.Show("D");
-            //if (e.KeyData == Keys.N && e.Control)
+            //if (e.KeyData == Keys.Insert && e.Control)
             //{
             //    _f(_combinaison);
             //}

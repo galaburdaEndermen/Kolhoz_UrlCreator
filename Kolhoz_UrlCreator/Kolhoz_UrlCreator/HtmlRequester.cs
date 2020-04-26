@@ -11,16 +11,31 @@ namespace Kolhoz_UrlCreator
 {
     static class HtmlRequester
     {
-
+        public static bool IsExist { get; set; }
         private static string getResponse(string uri)
         {
-            WebClient wc = new WebClient();
-            return wc.DownloadString(uri);
+            try
+            {
+                WebClient wc = new WebClient();
+                string result = wc.DownloadString(uri);
+                IsExist = true;
+                return result;
+            }
+            catch (Exception e)
+            {
+                IsExist = false;
+                return null;
+            }
+          
         }
         public static string getTitle(string adress) // акуратніше написать
         {
             string res;
             res = getResponse(adress);
+            if (!IsExist)
+            {
+                return "";
+            }
             string title = Regex.Match(res, @"\<title\b[^>]*\>\s*(?<Title>[\s\S]*?)\</title\>", RegexOptions.IgnoreCase).Groups["Title"].Value;
             byte[] bytes = Encoding.Default.GetBytes(title);
             title = Encoding.UTF8.GetString(bytes);
@@ -45,25 +60,25 @@ namespace Kolhoz_UrlCreator
             p.StartInfo = psi;
             p.Start();
         }
-        public static bool isExist(string href)
-        {
-            try
-            {
-                //Creating the HttpWebRequest
-                HttpWebRequest request = WebRequest.Create(href) as HttpWebRequest;
-                //Setting the Request method HEAD, you can also use GET too.
-                request.Method = "HEAD";
-                //Getting the Web Response.
-                HttpWebResponse response = request.GetResponse() as HttpWebResponse;
-                //Returns TRUE if the Status code == 200
-                response.Close();
-                return (response.StatusCode == HttpStatusCode.OK);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
+        //public static bool isExist(string href)
+        //{
+        //    try
+        //    {
+        //        //Creating the HttpWebRequest
+        //        HttpWebRequest request = WebRequest.Create(href) as HttpWebRequest;
+        //        //Setting the Request method HEAD, you can also use GET too.
+        //        request.Method = "HEAD";
+        //        //Getting the Web Response.
+        //        HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+        //        //Returns TRUE if the Status code == 200
+        //        response.Close();
+        //        return (response.StatusCode == HttpStatusCode.OK);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return false;
+        //    }
+        //}
 
         private static Thread jammer;
 

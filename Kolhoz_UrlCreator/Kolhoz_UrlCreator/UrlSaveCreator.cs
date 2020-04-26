@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -9,8 +10,10 @@ using System.Windows.Forms;
 
 namespace Kolhoz_UrlCreator
 {
-    class UrlSaveCreator
+    static class UrlSaveCreator
     {
+        public static string writePath = @"E:\";
+
         public static void Create()
         {
             GlobalKeySender.SendCtrlCtoSystem();
@@ -18,19 +21,45 @@ namespace Kolhoz_UrlCreator
             string selectedText = Clipboard.GetText();
 
             HtmlRequester.startJamming();
-            if (HtmlRequester.isExist(selectedText))
+            Thread.Sleep(100);
+            //if (HtmlRequester.isExist(selectedText))
+            //{
+            //    string title = HtmlRequester.getTitle(selectedText);
+            //    //MessageBox.Show(title);
+            //    Save(selectedText, title);
+            //}
+
+            string title = HtmlRequester.getTitle(selectedText);
+            if (title != "" && HtmlRequester.IsExist)
             {
-                string title = HtmlRequester.getTitle(selectedText);
-                MessageBox.Show(title);
+                Save(selectedText, title);
             }
+            //зробить шоб при фейлі запроса воно питалось регуляркою розковирять і зберегти як є, якшо то url
             HtmlRequester.stopJamming();
+
+            
         }
 
 
 
         private static void Save(string url, string title)
         {
-            //зберегти 
+            string filename = writePath + title + ".url";
+            string text = "[InternetShortcut]\nURL = " + "https://" + url;
+
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(filename, false, System.Text.Encoding.Default))
+                {
+                    sw.WriteLine(text);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                throw;
+            }
+
         }
     }
 }
