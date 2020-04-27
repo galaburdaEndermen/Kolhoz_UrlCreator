@@ -57,6 +57,7 @@ namespace Kolhoz_UrlCreator
             if (_combinaison.IndexOf(e.KeyCode) == _combinaison.Count - 1)
             {
                 //e.Handled = true;
+                //e.SuppressKeyPress = true;
                 bool before_pressed = true;
                 for (int i = 0; i < _combinaison.IndexOf(e.KeyCode); i++)
                 {
