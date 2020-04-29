@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using Kolhoz_UrlCreator.Extentions;
 
 namespace Kolhoz_UrlCreator
 {
@@ -40,13 +41,10 @@ namespace Kolhoz_UrlCreator
             byte[] bytes = Encoding.Default.GetBytes(title);
             title = Encoding.UTF8.GetString(bytes);
 
-            Filtre(title);
+            title.Filtre("/", @"\", ":", "*", "?", "\"", ">", "<", "|");
             return title;
         }
-        private static void Filtre(string fileName)
-        {
-            fileName = fileName.Replace("/", "").Replace(@"\", "").Replace(":", "").Replace("*", "").Replace("?", "").Replace("\"", "").Replace(">", "").Replace("<", "").Replace("|", "");
-        }
+      
 
 
 
