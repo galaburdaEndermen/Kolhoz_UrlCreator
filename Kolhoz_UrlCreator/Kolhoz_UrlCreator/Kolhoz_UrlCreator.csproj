@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Combinaison.cs" />
     <Compile Include="Extentions.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -54,8 +53,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="globalKeyboardHook.cs" />
     <Compile Include="GlobalKeySender.cs" />
+    <Compile Include="HotKey.cs" />
     <Compile Include="HtmlRequester.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
