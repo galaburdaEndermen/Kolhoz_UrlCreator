@@ -23,7 +23,7 @@ namespace Kolhoz_UrlCreator
         private EventFunction _f;
         private List<Keys> _combinaison;
         private List<bool> _pressed = new List<bool>();
-        private bool _event = false; // акуратно убрать з кода
+        //private bool _event = false; // акуратно убрать з кода
 
         public Combinaison(List<Keys> combinaison, EventFunction f)
         {
@@ -47,13 +47,14 @@ namespace Kolhoz_UrlCreator
                 e.Handled = true;
             }
 
-            _event = false;
+            //_event = false;
             _pressed[_combinaison.IndexOf(e.KeyCode)] = false;
         }
 
         private void gkh_KeyDown(object sender, KeyEventArgs e)
         {
             //e.Handled = true;
+            
             if (_combinaison.IndexOf(e.KeyCode) == _combinaison.Count - 1)
             {
                 //e.Handled = true;
@@ -70,8 +71,13 @@ namespace Kolhoz_UrlCreator
                 //if (before_pressed == true && _event == false) може це заплатка бага
                 if (before_pressed == true)
                 {
+                    e.Handled = true;
+                    MessageBox.Show("D");
+
                     _f(_combinaison);
-                    _event = true;
+
+
+                    //_event = true;
                 }
             }
             else
@@ -84,6 +90,7 @@ namespace Kolhoz_UrlCreator
             //{
             //    _f(_combinaison);
             //}
+            //e.Handled = true;
         }
     }
 }

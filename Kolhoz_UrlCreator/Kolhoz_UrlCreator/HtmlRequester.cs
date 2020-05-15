@@ -41,7 +41,7 @@ namespace Kolhoz_UrlCreator
             byte[] bytes = Encoding.Default.GetBytes(title);
             title = Encoding.UTF8.GetString(bytes);
 
-            title.Filtre("/", @"\", ":", "*", "?", "\"", ">", "<", "|");
+            title = title.Filtre("/", @"\", ":", "*", "?", "\"", ">", "<", "|");
             return title;
         }
       
@@ -100,14 +100,22 @@ namespace Kolhoz_UrlCreator
         {
             if (jammer != null)
             {
-                jammer.Suspend();
+                if (jammer.IsAlive)
+                {
+                    jammer.Suspend();
+                }
+                
             }
         }
 
         private static void jamming()
         {
-            DisableAdapter("Hamachi");
-            Thread.Sleep(10000);
+            while (true)
+            {
+                DisableAdapter("Hamachi");
+                Thread.Sleep(10000);
+            }
+            
         }
     }
 }

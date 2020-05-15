@@ -10,12 +10,14 @@ namespace Kolhoz_UrlCreator
     {
         static class StringExentions
         {
-            public static void Filtre(this string str, params string[] toDelete)
+            public static string Filtre(this string str, params string[] toDelete)
             {
+                string tmp = str;
                 foreach (string del in toDelete)
                 {
-                    str = str.Replace(del, "");
+                    tmp = tmp.Replace(del, "");
                 }
+                return tmp;
             }
         }
 
