@@ -29,7 +29,7 @@ namespace Kolhoz_UrlCreator
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            HotKey h = RegisterHotKey(Keys.N, HotKey.KeyModifiers.Control); // Crtl + 1
+            HotKey h = RegisterHotKey(Keys.N, HotKey.KeyModifiers.Control); 
         }
 
         public HotKey RegisterHotKey(Keys key, HotKey.KeyModifiers modifiers)
